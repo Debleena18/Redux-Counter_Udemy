@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
-import {counterActions} from '../store/index';
+
+import { counterActions } from '../store/index';
 import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter); //1st counter is the identifier used in Slice reducer, 2nd is the property name
+  const show = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
     dispatch(counterActions.increment());
   };
 
   const increaseHandler = () => {
-    dispatch(counterActions.increase(10)); //Any val can be passed a num or obj { type: SOME_UNIQUE_IDENTIFIER, payload: 10 }
+    dispatch(counterActions.increase(10)); // //Any val can be passed a num or obj { type: SOME_UNIQUE_IDENTIFIER, payload: 10 }
   };
 
   const decrementHandler = () => {

@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const initialCounterState = { counter: 0, showCounter: true };
+const initialCounterState = { counter: 0, showCounter: true }; //2nd counter
 
 const counterSlice = createSlice({
   name: 'counter',
@@ -39,9 +39,9 @@ const authSlice = createSlice({
 });
 
 //configureStore () makes merging multiple reducer easy
-//reducer is fixed property
+//reducer is fixed property and only one will be there.
 const store = configureStore({
-  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer }, //1st counter
 });
 
 export const counterActions = counterSlice.actions;
